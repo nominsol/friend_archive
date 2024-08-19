@@ -46,7 +46,7 @@ body {
 
 #gallery {
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
     /* 갤러리 상단에 여백 추가 */
     text-align: center;
 }
@@ -63,7 +63,20 @@ body {
 
 #gallery p {
     margin-top: 10px;
+    font-size: 20px;
+    /* 글씨 크기를 24px로 설정 */
+    font-weight: 600;
+    /* 글씨 두께를 600으로 설정 (일반적인 두께보다 더 두껍게) */
     /* 이미지와 텍스트 간의 간격 조정 */
+}
+
+.set-img {
+    display: flex;
+    /* 자식 요소들을 수평으로 나란히 배치 */
+    align-items: center;
+    /* 수직 방향으로 가운데 정렬 */
+    justify-content: center;
+    /* 수평 방향으로 가운데 정렬 */
 }
 
 button {
@@ -72,14 +85,16 @@ button {
     padding: 10px 20px;
     /* 버튼 내부 여백 조정 */
     border: none;
-    background-color: #444;
+    /* background-color: #444; */
     /* 버튼 배경색 */
-    color: #fff;
+    color: #000000;
     /* 버튼 텍스트 색상 */
     font-size: 16px;
     /* 버튼 텍스트 크기 */
     cursor: pointer;
     /* 마우스 커서 포인터로 변경 */
+    font-weight: bold;
+    <>기호를 두껍게 설정
 }
 
 button:hover {
