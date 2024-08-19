@@ -162,6 +162,9 @@
     window.addEventListener('load', aosInit);
 
     function navmenuScrollspy() {
+        // Define navmenulinks here
+        const navmenulinks = document.querySelectorAll('#navmenu a');
+
         navmenulinks.forEach(navmenulink => {
             if (!navmenulink.hash) return;
             let section = document.querySelector(navmenulink.hash);
@@ -173,7 +176,7 @@
             } else {
                 navmenulink.classList.remove('active');
             }
-        })
+        });
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);

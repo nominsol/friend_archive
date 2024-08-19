@@ -94,7 +94,7 @@ button {
     cursor: pointer;
     /* 마우스 커서 포인터로 변경 */
     font-weight: bold;
-    <>기호를 두껍게 설정
+    /* <>기호를 두껍게 설정 */
 }
 
 button:hover {

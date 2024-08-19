@@ -1,26 +1,50 @@
-/**
- * Template Name: Siimple
- * Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
- * Updated: Aug 07 2024 with Bootstrap v5.3.3
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 (function() {
+
     "use strict";
 
-    /**
-     * Apply .scrolled class to the body as the page is scrolled down
-     */
-    function toggleScrolled() {
-        const selectBody = document.querySelector('body');
-        const selectHeader = document.querySelector('#header');
-        if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-        window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+    document.addEventListener("DOMContentLoaded", function() {
+        loadQuotes();
+    });
+
+    function loadQuotes() {
+        // Fetch quotes from JSON file
+        fetch('assets/data/quotes.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const today = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+                const storedDate = localStorage.getItem('quoteDate');
+                const storedQuote = localStorage.getItem('quoteText');
+
+                // Check if the stored quote is for today
+                if (storedDate === today && storedQuote) {
+                    displayQuote(storedQuote);
+                } else {
+                    // Choose a new random quote if there's no stored quote or the date has changed
+                    const randomIndex = Math.floor(Math.random() * data.quotes.length);
+                    const newQuote = data.quotes[randomIndex];
+
+                    // Store new quote and date in localStorage
+                    localStorage.setItem('quoteDate', today);
+                    localStorage.setItem('quoteText', newQuote);
+
+                    displayQuote(newQuote);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading quotes:', error);
+            });
     }
 
-    document.addEventListener('scroll', toggleScrolled);
-    window.addEventListener('load', toggleScrolled);
+    function displayQuote(quote) {
+        const quoteElement = document.getElementById('quote');
+        quoteElement.textContent = quote;
+    }
+
 
     /**
      * Mobile nav toggle
@@ -47,7 +71,7 @@
     });
 
     /**
-     * Preloader
+     * Preloader (optional, if needed for this page)
      */
     const preloader = document.querySelector('#preloader');
     if (preloader) {
@@ -78,7 +102,7 @@
     document.addEventListener('scroll', toggleScrollTop);
 
     /**
-     * Animation on scroll function and init
+     * Animation on scroll initialization (if using AOS on this page)
      */
     function aosInit() {
         AOS.init({
@@ -90,30 +114,10 @@
     }
     window.addEventListener('load', aosInit);
 
-    /**
-     * Correct scrolling position upon page load for URLs containing hash links.
-     */
-    window.addEventListener('load', function(e) {
-        if (window.location.hash) {
-            if (document.querySelector(window.location.hash)) {
-                setTimeout(() => {
-                    let section = document.querySelector(window.location.hash);
-                    let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-                    window.scrollTo({
-                        top: section.offsetTop - parseInt(scrollMarginTop),
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            }
-        }
-    });
-
-    /**
-     * Navmenu Scrollspy
-     */
-    let navmenulinks = document.querySelectorAll('.navmenu a');
-
     function navmenuScrollspy() {
+        // Define navmenulinks here
+        const navmenulinks = document.querySelectorAll('#navmenu a');
+
         navmenulinks.forEach(navmenulink => {
             if (!navmenulink.hash) return;
             let section = document.querySelector(navmenulink.hash);
@@ -125,11 +129,9 @@
             } else {
                 navmenulink.classList.remove('active');
             }
-        })
+        });
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
-
-
 
 })();

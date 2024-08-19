@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Friendship Archive - Siimple Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Baloo:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/f_archive.css" rel="stylesheet">
+    <link href="assets/css/b_urDay.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles for the background image */
+        
+        .background-image {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            overflow: hidden;
+        }
+        
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/f_archive_main.jpg');
+            background-size: cover;
+            /* Cover the container while preserving the aspect ratio */
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            /* Ensure it is behind other content */
+        }
+    </style>
+
+</head>
+
+<body class="archive-page">
+
+    <!-- Background Image Section -->
+    <div class="background-image">
+        <!-- Content here will be on top of the background image -->
+        <!-- Header Section -->
+        <header id="header" class="header d-flex align-items-center fixed-top">
+            <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <h1 class="sitename">SmallZero</h1>
+                </a>
+
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="d_soyoung.html" id="d-soyoung">Dear soyoung</a></li>
+                        <li><a href="f_archive.html">Friendship Archive</a></li>
+                        <li><a href="b_urDay.html">Brighten Your Day</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="main">
+
+            <div class="container">
+                <div class="quote-box">
+                    <p id="quote">Loading...</p>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Custom JS for this page -->
+    <script src="assets/js/b_urDay.js"></script>
+
+</body>
+
+</html>

@@ -1,26 +1,6 @@
-/**
- * Template Name: Siimple
- * Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
- * Updated: Aug 07 2024 with Bootstrap v5.3.3
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 (function() {
+
     "use strict";
-
-    /**
-     * Apply .scrolled class to the body as the page is scrolled down
-     */
-    function toggleScrolled() {
-        const selectBody = document.querySelector('body');
-        const selectHeader = document.querySelector('#header');
-        if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-        window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-    }
-
-    document.addEventListener('scroll', toggleScrolled);
-    window.addEventListener('load', toggleScrolled);
 
     /**
      * Mobile nav toggle
@@ -47,7 +27,7 @@
     });
 
     /**
-     * Preloader
+     * Preloader (optional, if needed for this page)
      */
     const preloader = document.querySelector('#preloader');
     if (preloader) {
@@ -78,7 +58,7 @@
     document.addEventListener('scroll', toggleScrollTop);
 
     /**
-     * Animation on scroll function and init
+     * Animation on scroll initialization (if using AOS on this page)
      */
     function aosInit() {
         AOS.init({
@@ -90,30 +70,10 @@
     }
     window.addEventListener('load', aosInit);
 
-    /**
-     * Correct scrolling position upon page load for URLs containing hash links.
-     */
-    window.addEventListener('load', function(e) {
-        if (window.location.hash) {
-            if (document.querySelector(window.location.hash)) {
-                setTimeout(() => {
-                    let section = document.querySelector(window.location.hash);
-                    let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-                    window.scrollTo({
-                        top: section.offsetTop - parseInt(scrollMarginTop),
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            }
-        }
-    });
-
-    /**
-     * Navmenu Scrollspy
-     */
-    let navmenulinks = document.querySelectorAll('.navmenu a');
-
     function navmenuScrollspy() {
+        // Define navmenulinks here
+        const navmenulinks = document.querySelectorAll('#navmenu a');
+
         navmenulinks.forEach(navmenulink => {
             if (!navmenulink.hash) return;
             let section = document.querySelector(navmenulink.hash);
@@ -125,11 +85,9 @@
             } else {
                 navmenulink.classList.remove('active');
             }
-        })
+        });
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
-
-
 
 })();
