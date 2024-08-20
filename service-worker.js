@@ -1,5 +1,5 @@
 const CACHE_NAME = 'my-cache-v1';
-const FILES_TO_CACHE = [
+const URLs_TO_CACHE = [
     '/index.html',
     '/assets/css/main.css',
     '/assets/js/main.js',
@@ -12,7 +12,7 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
             return Promise.all(
-                FILES_TO_CACHE.map(function(requestUrl) {
+                URLs_TO_CACHE.map(function(requestUrl) {
                     return fetch(requestUrl).then(function(response) {
                         if (!response.ok) {
                             throw new Error('Network response was not ok.');
