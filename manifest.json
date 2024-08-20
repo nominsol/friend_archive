@@ -1,7 +1,7 @@
 {
     "name": "SmallZero",
     "short_name": "SmallZero",
-    "description": "wep app for soyoung",
+    "description": "web app for soyoung",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
