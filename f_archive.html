@@ -7,6 +7,7 @@
     <title>Friendship Archive - Siimple Bootstrap Template</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
@@ -75,6 +76,20 @@
 
     <!-- Custom JS for this page -->
     <script src="assets/js/f_archive.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(error) {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+
 
 </body>
 
