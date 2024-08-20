@@ -1,5 +1,4 @@
 (function() {
-
     "use strict";
 
     /**
@@ -23,29 +22,22 @@
                 mobileNavToogle();
             }
         });
-
     });
-
-    /**
-     * Preloader (optional, if needed for this page)
-     */
-    const preloader = document.querySelector('#preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.remove();
-        });
-    }
 
     /**
      * Scroll top button
      */
-    let scrollTop = document.querySelector('.scroll-top');
+    let scrollTop = document.querySelector('#scroll-top');
 
     function toggleScrollTop() {
-        if (scrollTop) {
-            window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+        if (window.scrollY > 100) {
+            scrollTop.classList.add('active');
+        } else {
+            scrollTop.classList.remove('active');
         }
+
     }
+
     scrollTop.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({
@@ -53,9 +45,6 @@
             behavior: 'smooth'
         });
     });
-
-    window.addEventListener('load', toggleScrollTop);
-    document.addEventListener('scroll', toggleScrollTop);
 
     /**
      * Animation on scroll initialization (if using AOS on this page)
