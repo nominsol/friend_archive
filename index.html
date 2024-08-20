@@ -7,7 +7,7 @@
     <title>Index - Siimple Bootstrap Template</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-
+    <link rel="manifest" href="/manifest.json">
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -81,6 +81,18 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(error) {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
 
 
 </body>
