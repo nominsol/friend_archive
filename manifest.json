@@ -1,8 +1,8 @@
 {
     "name": "SmallZero",
     "short_name": "SmallZero",
-    "description": "web app for soyoung",
-    "start_url": "/index.html",
+    "description": "Web app for Soyoung",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
