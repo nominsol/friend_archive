@@ -1,7 +1,6 @@
 const CACHE_NAME = 'my-cache-v1';
-const URLs_TO_CACHE = [
-    '/',
-    '/index.html', ,
+const FILES_TO_CACHE = [
+    '/index.html',
     '/assets/css/main.css',
     '/assets/js/main.js',
     '/assets/img/appIcon.png',
