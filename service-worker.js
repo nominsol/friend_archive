@@ -11,7 +11,18 @@ self.addEventListener('install', function(event) {
     console.log('Service worker installing...');
     event.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
-            return cache.addAll(FILES_TO_CACHE);
+            return Promise.all(
+                FILES_TO_CACHE.map(function(requestUrl) {
+                    return fetch(requestUrl).then(function(response) {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok.');
+                        }
+                        return cache.put(requestUrl, response);
+                    }).catch(function(error) {
+                        console.error('Failed to cache:', requestUrl, error);
+                    });
+                })
+            );
         })
     );
 });
@@ -34,7 +45,6 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
     if (event.request.method !== 'GET') {
-        // Non-GET requests are not handled by this service worker
         event.respondWith(fetch(event.request));
         return;
     }
@@ -42,19 +52,15 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request).then(function(response) {
             if (response) {
-                // If there's a cached response, return it
                 return response;
             }
 
-            // Otherwise, fetch from the network
             return fetch(event.request).then(function(networkResponse) {
-                // Update the cache with the network response
                 return caches.open(CACHE_NAME).then(function(cache) {
                     cache.put(event.request, networkResponse.clone());
                     return networkResponse;
                 });
             }).catch(function() {
-                // Handle fetch errors here
                 return new Response('Network error occurred', { status: 504 });
             });
         })
