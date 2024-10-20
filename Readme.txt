@@ -1,6 +1,21 @@
-Thanks for downloading this template!
+# SmallZero Web App
 
-Template Name: Siimple
-Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+## 프로젝트 설명
+
+**SmallZero Web App**은 매일 새로운 명언, 조언, 시를 제공하는 Progressive Web App(PWA)입니다. 사용자는 웹앱을 홈 화면에 추가하여 네이티브 앱처럼 사용할 수 있습니다. 이 웹앱은 매일 자정에 새로운 명언을 자동으로 업데이트하며, 오프라인 상태에서도 사용할 수 있도록 설계되었습니다.
+
+## 주요 기능
+
+- 매일 자정에 새로운 명언, 조언, 시를 랜덤으로 표시
+- 추억을 담은 갤러리
+- 단 한명만을 편지
+- 오프라인 사용 가능 (PWA 기능)
+- 사용자가 웹앱을 홈 화면에 추가하여 네이티브 앱처럼 사용
+- 심플하고 직관적인 UI 디자인
+
+## 기술 스택
+
+- **HTML/CSS**: 웹앱의 구조 및 스타일링
+- **JavaScript**: 동적인 콘텐츠 로딩 및 로컬 스토리지 관리
+- **PWA (Progressive Web App)**: 오프라인 사용 및 홈 화면 추가 기능
+- **GitHub Pages**: 웹앱 배포
